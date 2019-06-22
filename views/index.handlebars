@@ -1,0 +1,34 @@
+<div class = "container">
+<img class="burger" src="/assets/img/burger.png" alt="Boiga">
+
+<h1> You Hungry Dawg?</h1>
+<div>
+<ol class="menu">
+       {{#each burgers}}
+       {{#unless devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/unless}}
+        {{/each}}
+</ol>
+</div>
+<div>
+<ol class="eaten">
+        {{#each eaten}}
+        {{#if devoured}}
+        {{> burgers/burger-block devoured=true}}
+        {{/if}}
+        {{/each}}
+</ol>
+</div>
+
+<br>
+<div class="newItem">
+<h2>Add to the menu!</h2>
+<form class="addNew" action="/" method="POST">
+
+<div><textarea type="text" name="burger">Enter your burger!</textarea></div>
+<div><button type="submit">Submit</button></div>
+</div>
+</form>
+
+</div>
