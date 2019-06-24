@@ -2,32 +2,34 @@
 <img class="burger" src="/assets/img/burger.png" alt="Boiga">
 
 <h1> You Hungry Dawg?</h1>
-<div>
+<div class="">
 <ol class="menu">
        {{#each burgers}}
        {{#unless devoured}}
-        {{> burgers/burger-block devoured=false}}
+        {{> burgers/burger-block}}
         {{/unless}}
         {{/each}}
 </ol>
 </div>
-<div>
+<div class="">
 <ol class="eaten">
-        {{#each eaten}}
+        {{#each burgers}}
         {{#if devoured}}
-        {{> burgers/burger-block devoured=true}}
+        {{> burgers/eatenburger-block}}
         {{/if}}
         {{/each}}
 </ol>
 </div>
 
 <br>
+<br>
+<br>
 <div class="newItem">
 <h2>Add to the menu!</h2>
 <form class="addNew" action="/" method="POST">
 
-<div><textarea type="text" name="burger">Enter your burger!</textarea></div>
-<div><button type="submit">Submit</button></div>
+<div><textarea class ="newBurger" type="text" name="burger">Enter your burger!</textarea></div>
+<div><button class="submit" type="submit">Submit</button></div>
 </div>
 </form>
 

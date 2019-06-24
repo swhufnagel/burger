@@ -20,9 +20,9 @@ var orm = {
     updateOne: function(table,devoured,id,cb){
         var queryString = "UPDATE "+table+" SET devoured = ? WHERE id=?";
         connection.query(queryString,[devoured,id],function(err,res){
-            if (result.changedRows === 0) {
+            if (res.changedRows === 0) {
                 // If no rows were changed, then the ID must not exist, so 404
-                return res.status(404).end();
+                if(err) throw err;
               }    
             cb(res);
         })
