@@ -1,12 +1,17 @@
 var mysql = require('mysql');
-
-var connection = mysql.createConnection({
+var connection;
+if(process.env.JAWSDB_URL){
+connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else{
+connection = mysql.createConnection({
 host:"localhost",
 port: 3306,
 user:"root",
 password:"poopyy.1",
 database:"burgers_db"
 });
+}
 var del = connection._protocol._delegateError;
 connection._protocol._delegateError = function(err, sequence){
   if (err.fatal) {
